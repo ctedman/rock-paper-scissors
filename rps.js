@@ -52,3 +52,11 @@ function getComputerChoice() {
 }
 
 getComputerChoice();
+
+let playerSelection = window.prompt("Choose Rock, Paper, or Scissors.", "Rock")
+
+while (playerSelection == "" || playerSelection == null) {
+    playerSelection = window.prompt("TRY AGAIN.\n Choose Rock, Paper, or Scissors.", "Rock")
+}
+
+console.log(playerSelection);
