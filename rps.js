@@ -41,22 +41,22 @@ if playerSelection == SCISSORS && computerSelection == SCISSORS
 function getComputerChoice() {
     const randomInt = Math.floor(Math.random() * 3);
     if (randomInt == 0) {
-        console.log("ROCK");
+        const computerChoice = "ROCK";
     }
     else if (randomInt == 1) {
-        console.log("PAPER");
+        const computerChoice = "PAPER";
     }
     else {
-        console.log("SCISSORS");
+        const computerChoice = "SCISSORS";
     }
 }
 
 getComputerChoice();
 
-let playerSelection = window.prompt("Choose Rock, Paper, or Scissors.", "Rock")
+let playerSelection = window.prompt("Choose Rock, Paper, or Scissors.", "Rock").toUpperCase();
 
 while (playerSelection == "" || playerSelection == null) {
-    playerSelection = window.prompt("TRY AGAIN.\n Choose Rock, Paper, or Scissors.", "Rock")
+    playerSelection = window.prompt("TRY AGAIN.\n Choose Rock, Paper, or Scissors.", "Rock").toUpperCase();
 }
 
-console.log(playerSelection);
+
