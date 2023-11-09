@@ -15,25 +15,25 @@ computerSelection is taken from a random number generator from 1-9
 Rock cases
 if playerSelection == ROCK && computerSelection == ROCK 
     then return console.log("Tie! Rock draws with Rock.")
-if playerSelection == ROCK && computerSelection == PAPER
+if playerSelection == ROCK && computerSelection == "PAPER"
     then return console.log("You Lose! Paper beats Rock.")
-if playerSelection == ROCK && computerSelection == SCISSORS
+if playerSelection == ROCK && computerSelection == "SCISSORS"
     then return console.log("You Win! Rock beats Paper.")
 
 Paper cases
-if playerSelection == PAPER && computerSelection == ROCK
+if playerSelection == "PAPER" && computerSelection == ROCK
     then return console.log("You Win! Paper beats Rock.")
-if playerSelection == PAPER && computerSelection == PAPER
+if playerSelection == "PAPER" && computerSelection == "PAPER"
     then return console.log("Tie! Paper draws with Paper.")
-if playerSelection == PAPER && computerSelection == SCISSORS
+if playerSelection == "PAPER" && computerSelection == "SCISSORS"
     then return console.log("You Lose! Scissors beats Paper.")
 
 Scissors cases
-if playerSelection == SCISSORS && computerSelection == ROCK
+if playerSelection == "SCISSORS" && computerSelection == ROCK
     then return console.log("You Lose! Rock beats Paper.")
-if playerSelection == SCISSORS && computerSelection == PAPER
+if playerSelection == "SCISSORS" && computerSelection == "PAPER"
     then return console.log("You Win! Scissors beats Paper.")
-if playerSelection == SCISSORS && computerSelection == SCISSORS
+if playerSelection == "SCISSORS" && computerSelection == "SCISSORS"
     then return console.log("Tie! Scissors draws with Scissors.")
 
 */
@@ -59,6 +59,37 @@ while (playerSelection == "" || playerSelection == null) {
     playerSelection = window.prompt("TRY AGAIN.\n Choose Rock, Paper, or Scissors.", "Rock").toUpperCase();
 }
 
-console.log(computerChoice);
 console.log(playerSelection);
+console.log(computerChoice);
 
+function playRound(playerSelection, computerChoice) {
+    if (playerSelection == "ROCK" && computerChoice == "ROCK") {
+        return "Tie! Rock draws with Rock.";
+    } 
+    else if (playerSelection == "ROCK" && computerChoice == "PAPER") {
+        return "You Lose! Paper beats Rock.";
+    }     
+    else if (playerSelection == "ROCK" && computerChoice == "SCISSORS") {
+        return "You Win! Rock beats Paper.";
+    }
+    else if (playerSelection == "PAPER" && computerChoice == "ROCK") {
+        return "You Win! Paper beats Rock.";
+    }
+    else if (playerSelection == "PAPER" && computerChoice == "PAPER") {
+        return "Tie! Paper draws with Paper.";
+    }
+    else if (playerSelection == "PAPER" && computerChoice == "SCISSORS") {
+        return "You Lose! Scissors beats Paper.";
+    }
+    else if (playerSelection == "SCISSORS" && computerChoice == "ROCK") {
+        return "You Lose! Rock beats Paper.";
+    }
+    else if (playerSelection == "SCISSORS" && computerChoice == "PAPER") {
+        return "You Win! Scissors beats Paper.";
+    }
+    else if (playerSelection == "SCISSORS" && computerChoice == "SCISSORS") {
+        return "Tie! Scissors draws with Scissors.";
+    }
+}
+
+console.log(playRound(playerSelection,computerChoice));
