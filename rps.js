@@ -22,12 +22,6 @@ function getPlayerSelection() {
     return promptChoice;
 }
 
-//let computerChoice = getComputerChoice();
-//let playerSelection = getPlayerSelection();
-
-//console.log(playerSelection);
-//console.log(computerChoice);
-
 function playRound(playerSelection, computerChoice) {
 
     if (playerSelection == "ROCK" && computerChoice == "ROCK") {
@@ -58,8 +52,6 @@ function playRound(playerSelection, computerChoice) {
         return "Tie! Scissors draws with Scissors.";
     }
 }
-
-//console.log(playRound(playerSelection,computerChoice));
 
 
 function game() {
