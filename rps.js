@@ -57,7 +57,6 @@ function playRound(playerSelection, computerChoice) {
 function game() {
     let playerScore = 0;
     let computerScore = 0;
-    for (let i = 0; i < 5; i++) {
         let computerChoice = getComputerChoice();
         let playerSelection = getPlayerSelection();
         let gameResult = playRound(playerSelection,computerChoice);
@@ -70,7 +69,6 @@ function game() {
         if (gameResult == "You Lose! Rock loses to Paper." || gameResult == "You Lose! Scissors loses to Rock." || gameResult == "You Lose! Paper loses to Scissors.") {
             computerScore++;
         }
-    }
     console.log("Player Score: "+playerScore);
     console.log("Computer Score: "+computerScore);
 }
