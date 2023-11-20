@@ -17,7 +17,7 @@ function getPlayerSelection(choice) {
 }
 
 function playRound(playerSelection) {
-
+ 
     let computerChoice = getComputerChoice();
 
     if (playerSelection == "ROCK" && computerChoice == "ROCK") {
@@ -47,8 +47,8 @@ function playRound(playerSelection) {
     else if (playerSelection == "SCISSORS" && computerChoice == "SCISSORS") {
         return "Tie! Scissors draws with Scissors.";
     }
-    console.log(playRound)
 }
+
 
 
 function game(playerSelection) {
@@ -61,10 +61,13 @@ function game(playerSelection) {
         console.log(gameResult);
         if (gameResult == "You Win! Rock beats Scissors." || gameResult == "You Win! Paper beats Rock." || gameResult == "You Win! Scissors beats Paper.") {
             playerScore++;
+            scoreTracker.textContent = `Player Score: ${playerScore}   Computer Score: ${computerScore}`;
         }
         if (gameResult == "You Lose! Rock loses to Paper." || gameResult == "You Lose! Scissors loses to Rock." || gameResult == "You Lose! Paper loses to Scissors.") {
             computerScore++;
+            scoreTracker.textContent = `Player Score: ${playerScore}   Computer Score: ${computerScore}`;
         }
+    
     console.log("Player Score: "+playerScore);
     console.log("Computer Score: "+computerScore);
 }
@@ -72,15 +75,60 @@ function game(playerSelection) {
 let rockButton = document.querySelector('.rock-btn');
 let paperButton = document.querySelector('.paper-btn');
 let scissorsButton = document.querySelector('.scissors-btn');
-
+let scoreTracker = document.querySelector('.score');
+let resultTracker = document.querySelector('.result');
 
 rockButton.addEventListener('click', function(){
-    game("ROCK");
+    let gameResult = playRound("ROCK");
+    if (gameResult == "You Win! Rock beats Scissors." || gameResult == "You Win! Paper beats Rock." || gameResult == "You Win! Scissors beats Paper.") {
+        playerScore++;
+    }
+    if (gameResult == "You Lose! Rock loses to Paper." || gameResult == "You Lose! Scissors loses to Rock." || gameResult == "You Lose! Paper loses to Scissors.") {
+        computerScore++;
+    }
+    if (playerScore >= 5) {
+        gameResult = "MATCH OVER. YOU WIN!"
+    }
+    if (computerScore >= 5) {
+        gameResult = "MATCH OVER. YOU LOSE!"
+    }
+    resultTracker.textContent = `${gameResult}`;
+    scoreTracker.textContent = `Player Score: ${playerScore} | Computer Score: ${computerScore}`;
 });
 paperButton.addEventListener('click', function(){
-    game("PAPER");
+    let gameResult = playRound("PAPER");
+    if (gameResult == "You Win! Rock beats Scissors." || gameResult == "You Win! Paper beats Rock." || gameResult == "You Win! Scissors beats Paper.") {
+        playerScore++;
+    }
+    if (gameResult == "You Lose! Rock loses to Paper." || gameResult == "You Lose! Scissors loses to Rock." || gameResult == "You Lose! Paper loses to Scissors.") {
+        computerScore++;
+    }
+    if (playerScore >= 5) {
+        gameResult = "MATCH OVER. YOU WIN!"
+    }
+    if (computerScore >= 5) {
+        gameResult = "MATCH OVER. YOU LOSE!"
+    }
+    resultTracker.textContent = `${gameResult}`;
+    scoreTracker.textContent = `Player Score: ${playerScore} | Computer Score: ${computerScore}`;
 });
 scissorsButton.addEventListener('click', function(){
-    game("SCISSORS");
+    let gameResult = playRound("SCISSORS");
+    if (gameResult == "You Win! Rock beats Scissors." || gameResult == "You Win! Paper beats Rock." || gameResult == "You Win! Scissors beats Paper.") {
+        playerScore++;
+    }
+    if (gameResult == "You Lose! Rock loses to Paper." || gameResult == "You Lose! Scissors loses to Rock." || gameResult == "You Lose! Paper loses to Scissors.") {
+        computerScore++;
+    }
+    if (playerScore >= 5) {
+        gameResult = "MATCH OVER. YOU WIN!"
+    }
+    if (computerScore >= 5) {
+        gameResult = "MATCH OVER. YOU LOSE!"
+    }
+    resultTracker.textContent = `${gameResult}`;
+    scoreTracker.textContent = `Player Score: ${playerScore} | Computer Score: ${computerScore}`;
 });
 
+let playerScore = 0;
+let computerScore = 0;
