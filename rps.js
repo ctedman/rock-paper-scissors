@@ -12,17 +12,13 @@ function getComputerChoice() {
     }
 }
 
-function getPlayerSelection() {
-    let promptChoice = window.prompt("Choose Rock, Paper, or Scissors.", "Rock").toUpperCase();
-
-    while (promptChoice == "" || promptChoice == null) {
-        promptChoice = window.prompt("TRY AGAIN.\n Choose Rock, Paper, or Scissors.", "Rock").toUpperCase();
-    }
-
-    return promptChoice;
+function getPlayerSelection(choice) {
+    return choice;
 }
 
-function playRound(playerSelection, computerChoice) {
+function playRound(playerSelection) {
+
+    let computerChoice = getComputerChoice();
 
     if (playerSelection == "ROCK" && computerChoice == "ROCK") {
         return "Tie! Rock draws with Rock.";
@@ -51,14 +47,14 @@ function playRound(playerSelection, computerChoice) {
     else if (playerSelection == "SCISSORS" && computerChoice == "SCISSORS") {
         return "Tie! Scissors draws with Scissors.";
     }
+    console.log(playRound)
 }
 
 
-function game() {
+function game(playerSelection) {
     let playerScore = 0;
     let computerScore = 0;
         let computerChoice = getComputerChoice();
-        let playerSelection = getPlayerSelection();
         let gameResult = playRound(playerSelection,computerChoice);
         console.log(playerSelection);
         console.log(computerChoice);
@@ -73,5 +69,18 @@ function game() {
     console.log("Computer Score: "+computerScore);
 }
 
+let rockButton = document.querySelector('.rock-btn');
+let paperButton = document.querySelector('.paper-btn');
+let scissorsButton = document.querySelector('.scissors-btn');
 
+
+rockButton.addEventListener('click', function(){
+    game("ROCK");
+});
+paperButton.addEventListener('click', function(){
+    game("PAPER");
+});
+scissorsButton.addEventListener('click', function(){
+    game("SCISSORS");
+});
 
